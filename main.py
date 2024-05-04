@@ -51,7 +51,8 @@ async def on_ready():
 
 @client.tree.command(name="ping", description="get the latency")
 async def ping(interaction):
-	await interaction.response.send_message(f"Ping: {client.latency*1000}ms")
+	ping = '{:.2f}'.format(round(client.latency*1000, 2))
+	await interaction.response.send_message(f"Ping: {ping}ms")
 
 @client.command()
 async def sync(ctx):
